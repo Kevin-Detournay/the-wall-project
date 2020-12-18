@@ -1,0 +1,77 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="286" height="177" view_box="0 0 286 177"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:link="http://www.w3.org/1999/xlink">\n\n<desc>Généré par Mocodo 2.3.7 le Fri, 18 Dec 2020 00:47:01</desc>
+
+<rect id="frame" x="0" y="0" width="286" height="177" fill="#ffffff" stroke="none" stroke-width="0"/>
+
+<!-- Association POSSEDE -->
+<line x1="240" y1="51" x2="240" y2="143" stroke="#878787" stroke-width="2"/>
+<text x="245.0" y="110" fill="#b2182b" font-family="Verdana" font-size="12">0,N</text>
+<line x1="133" y1="143" x2="240" y2="143" stroke="#878787" stroke-width="2"/>
+<text x="168" y="160.0" fill="#b2182b" font-family="Verdana" font-size="12">0,N</text>
+<g id="association-POSSEDE">
+	<path d="M 263 118 a 14 14 90 0 1 14 14 V 143 h -74 V 132 a 14 14 90 0 1 14 -14" fill="#bababa" stroke="#bababa" stroke-width="0"/>
+	<path d="M 277 143.0 v 11 a 14 14 90 0 1 -14 14 H 217 a 14 14 90 0 1 -14 -14 V 143.0 H 74" fill="#e0e0e0" stroke="#e0e0e0" stroke-width="0"/>
+	<rect x="203" y="118" width="74" height="50" fill="none" rx="14" stroke="#878787" stroke-width="2"/>
+	<line x1="203" y1="143" x2="277" y2="143" stroke="#878787" stroke-width="1"/>
+	<text x="210" y="135.7" fill="#000000" font-family="Verdana" font-size="12">POSSEDE</text>
+</g>
+
+<!-- Association APPARTIENT -->
+<line x1="240" y1="51" x2="133" y2="51" stroke="#878787" stroke-width="2"/>
+<text x="185" y="68.0" fill="#b2182b" font-family="Verdana" font-size="12">1,1</text>
+<line x1="32" y1="51" x2="133" y2="51" stroke="#878787" stroke-width="2"/>
+<text x="60" y="68.0" fill="#b2182b" font-family="Verdana" font-size="12">0,N</text>
+<g id="association-APPARTIENT">
+	<path d="M 165 26 a 14 14 90 0 1 14 14 V 51 h -92 V 40 a 14 14 90 0 1 14 -14" fill="#bababa" stroke="#bababa" stroke-width="0"/>
+	<path d="M 179 51.0 v 11 a 14 14 90 0 1 -14 14 H 101 a 14 14 90 0 1 -14 -14 V 51.0 H 92" fill="#e0e0e0" stroke="#e0e0e0" stroke-width="0"/>
+	<rect x="87" y="26" width="92" height="50" fill="none" rx="14" stroke="#878787" stroke-width="2"/>
+	<line x1="87" y1="51" x2="179" y2="51" stroke="#878787" stroke-width="1"/>
+	<text x="94" y="43.7" fill="#000000" font-family="Verdana" font-size="12">APPARTIENT</text>
+</g>
+
+<!-- Entity LISTE -->
+<g id="entity-LISTE">
+	<g id="frame-LISTE">
+		<rect x="9" y="17" width="46" height="25" fill="#f4a582" stroke="#f4a582" stroke-width="0"/>
+		<rect x="9" y="42.0" width="46" height="43" fill="#fddbc7" stroke="#fddbc7" stroke-width="0"/>
+		<rect x="9" y="17" width="46" height="68" fill="none" stroke="#d6604d" stroke-width="2"/>
+		<line x1="9" y1="42" x2="55" y2="42" stroke="#d6604d" stroke-width="1"/>
+	</g>
+	<text x="14" y="34.7" fill="#000000" font-family="Verdana" font-size="12">LISTE</text>
+	<text x="14" y="59.8" fill="#000000" font-family="Verdana" font-size="12">nom</text>
+	<line x1="14" y1="62" x2="42" y2="62" stroke="#000000" stroke-width="1"/>
+</g>
+
+<!-- Entity LIBELLE -->
+<g id="entity-LIBELLE">
+	<g id="frame-LIBELLE">
+		<rect x="103" y="118" width="60" height="25" fill="#f4a582" stroke="#f4a582" stroke-width="0"/>
+		<rect x="103" y="143.0" width="60" height="25" fill="#fddbc7" stroke="#fddbc7" stroke-width="0"/>
+		<rect x="103" y="118" width="60" height="50" fill="none" stroke="#d6604d" stroke-width="2"/>
+		<line x1="103" y1="143" x2="163" y2="143" stroke="#d6604d" stroke-width="1"/>
+	</g>
+	<text x="108" y="135.7" fill="#000000" font-family="Verdana" font-size="12">LIBELLE</text>
+	<text x="108" y="160.8" fill="#000000" font-family="Verdana" font-size="12">nom</text>
+	<line x1="108" y1="163" x2="136" y2="163" stroke="#000000" stroke-width="1"/>
+</g>
+
+<!-- Entity CARTE -->
+<g id="entity-CARTE">
+	<g id="frame-CARTE">
+		<rect x="211" y="9" width="58" height="25" fill="#f4a582" stroke="#f4a582" stroke-width="0"/>
+		<rect x="211" y="34.0" width="58" height="59" fill="#fddbc7" stroke="#fddbc7" stroke-width="0"/>
+		<rect x="211" y="9" width="58" height="84" fill="none" stroke="#d6604d" stroke-width="2"/>
+		<line x1="211" y1="34" x2="269" y2="34" stroke="#d6604d" stroke-width="1"/>
+	</g>
+	<text x="219" y="26.7" fill="#000000" font-family="Verdana" font-size="12">CARTE</text>
+	<text x="216" y="51.8" fill="#000000" font-family="Verdana" font-size="12">titre</text>
+	<line x1="216" y1="54" x2="242" y2="54" stroke="#000000" stroke-width="1"/>
+	<text x="216" y="68.8" fill="#000000" font-family="Verdana" font-size="12">position</text>
+	<text x="216" y="85.8" fill="#000000" font-family="Verdana" font-size="12">couleur</text>
+</g>
+</svg>

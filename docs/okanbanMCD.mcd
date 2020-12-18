@@ -4,4 +4,4 @@ CARTE: titre, position, couleur
 
 :
 LIBELLE: nom
-POSSEDE, 0N CARTE, 0N LIBELLE
+POSSEDE, 0N CARTE, 0N LIBELLE#

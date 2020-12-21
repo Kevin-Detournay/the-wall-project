@@ -12,7 +12,7 @@ CREATE TABLE "list"(
     -- Afin de stocker à la fois une date et une heure on utilise le format "timestamp", en prenant bien soin d'y ajouté le fuseau horaire de la configuration du serveur. pour cela on utilisera le type TIMESTAMPTZ.
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     -- Comme c'est une date de mise à jour, celle-ci interviendra peut-être dans le futur ou pas. Donc on laisse la possibilté d'avoir une valeur NULL qui sera la sienne à la création d'un enregistrement.
-    "update_at" TIMESTAMPTZ
+    "updated_at" TIMESTAMPTZ
 );
 
 CREATE TABLE "card"(
@@ -21,7 +21,7 @@ CREATE TABLE "card"(
     "position" INTEGER NOT NULL DEFAULT 0,
     "color" TEXT,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    "update_at" TIMESTAMPTZ,
+    "updated_at" TIMESTAMPTZ,
     -- On a également une convention de nommage pour les colonnes de référence qui est <nom ded la table>_<colonne contenant la référence>
     "list_id" INTEGER NOT NULL REFERENCES "list"("id") ON DELETE CASCADE
     -- On peut si on le souhaite ajouté les contraintes de clé étrangèe ou autre à la fin de al définition de la table.
@@ -34,7 +34,7 @@ CREATE TABLE "label"(
     "name" TEXT NOT NULL,
     "color" TEXT,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    "update_at" TIMESTAMPTZ
+    "updated_at" TIMESTAMPTZ
 );
 
 CREATE TABLE "card_has_label"(

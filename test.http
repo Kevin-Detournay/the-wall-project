@@ -1,0 +1,9 @@
+# Récupération des list
+GET http://localhost:3000/lists
+
+### création d'une liste
+POST http://localhost:3000/lists
+Content-Type: application/x-www-form-urlencoded
+
+name=liste test post
+&position=1

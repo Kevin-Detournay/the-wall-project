@@ -1,5 +1,8 @@
-# Récupération des list
+### Récupération des listes
 GET http://localhost:3000/lists
+
+### Récupération d'une liste
+GET http://localhost:3000/lists/1
 
 ### création d'une liste
 POST http://localhost:3000/lists
@@ -7,3 +10,13 @@ Content-Type: application/x-www-form-urlencoded
 
 name=liste test post
 &position=1
+
+
+### création d'une liste
+PATCH http://localhost:3000/lists/1
+Content-Type: application/x-www-form-urlencoded
+
+position=15
+
+### suppression d'une liste
+DELETE http://localhost:3000/lists/3

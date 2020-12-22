@@ -31,7 +31,7 @@ Card.belongsToMany(Label, {
     through: 'card_has_label',
     foreignKey: 'card_id',
     otherKey: 'label_id',
-    updatedAt: false
+    timestamps: false
 });
 
 /// Comme il n'y a pas de sens l'inverse utilise la même méthode.
@@ -41,7 +41,8 @@ Label.belongsToMany(Card, {
     // Par contre ici dans les options on peut et on doit inverser les informations
     foreignKey: 'label_id',
     otherKey: 'card_id',
-    updatedAt: false
+    // Tu ne t'occupes pas de gérer des dates
+    timestamps: false
 });
 
 

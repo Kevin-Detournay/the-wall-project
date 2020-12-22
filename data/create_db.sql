@@ -47,17 +47,17 @@ CREATE TABLE "card_has_label"(
     -- Par contre ici on n'a pas besoin de colonne updated_at car une association ne se met pas à jour, elle se créer ou se supprime.
 );
 
-INSERT INTO "list" ("id", "name")
+INSERT INTO "list" ("id", "name", "position")
 VALUES
-(1, 'première liste'),
-(2, 'deuxième liste')
+(1, 'première liste', 1),
+(2, 'deuxième liste', 0)
 ;
 
-INSERT INTO "card" ("id", "content", "color", "list_id")
+INSERT INTO "card" ("id", "content", "color", "list_id", "position")
 VALUES
-(1, 'carte 1', '#ff00ff', 1),
-(2, 'carte 2', '#00ffff', 1),
-(3, 'carte 3', '#ffff00', 2);
+(1, 'carte 1', '#ff00ff', 1, 1),
+(2, 'carte 2', '#00ffff', 1, 0),
+(3, 'carte 3', '#ffff00', 2, 0);
 
 INSERT INTO "label" ("id", "name", "color")
 VALUES
@@ -72,6 +72,11 @@ VALUES
 (2, 2),
 (3, 1),
 (3, 3);
+
+-- Ces 3 requêtes permettent de faire démarré le compteur d'incrémentation automatique des tables à partir du dernier id présent dans les enregistrements
+SELECT setval('list_id_seq', (SELECT MAX(id) from "list"));
+SELECT setval('card_id_seq', (SELECT MAX(id) from "card"));
+SELECT setval('label_id_seq', (SELECT MAX(id) from "label"));
 
 
 COMMIT;

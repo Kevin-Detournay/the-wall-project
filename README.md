@@ -1,5 +1,32 @@
 # oKanban
 
+## jour 4 : Implémentation
+
+Pour chacune des tâches suivantes, créer un nouveau controller.
+
+### Cartes
+
+Mettre en place les routes suivantes :
+
+- GET `/lists/:id/cards` : renvoie toutes les cartes d'une liste. Chaque carte doit porter les tags qui lui sont associés.
+- GET `/cards/:id` : renvoie les détails de la carte demandée, avec les tags qui lui sont associés.
+- POST `/cards` : crée une nouvelle carte (attention à bien valider les paramètres)
+- PATCH `/cards/:id` : modifie une carte (ou 404)
+- DELETE `/cards/:id` : supprimer ou carte (ou 404)
+
+### Tags
+
+Mettre en place les routes suivantes
+
+- GET `/tags` : renvoie tous les tags
+- POST `/tags` : crée un nouveau tag (attention aux paramètres)
+- PATCH `/tags/:id` : modifie le tag ciblé (ou 404, ou 400, bref on commence à avoir l'habitude)
+- DELETE `/tags/:id` : supprime un tag. (Pas besoin de toucher à la table de liaison, on en reparlera en cockpit!)
+- POST `/cards/:id/tags` : associe un tag à la carte ciblée. L'id du tag doit se trouver dans les paramètres POST (sous le nom "tag_id")
+- DELETE `/cards/:card_id/tags/:tag_id` : supprime l'association entre le tag et la carte.
+
+---
+
 ## jour 3 : Mise en place API
 
 ### Archi

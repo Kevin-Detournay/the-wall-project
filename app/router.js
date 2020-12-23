@@ -4,6 +4,8 @@ const router = express.Router();
 
 const mainController = require('./controllers/mainController');
 const listController = require('./controllers/listController');
+const cardController = require('./controllers/cardController');
+const tagController = require('./controllers/tagController');
 
 /*
 router.get('/lists', listController.getAllList);
@@ -11,14 +13,37 @@ router.post('/lists', listController.getAllList);
 Ce qui suit correspond exactement a ce qu'il y a ci-dessus.
 C'est juste écrit de façon plus optimale, grâce à la méthode route()
 */
-router.route('/lists')
-    .get(listController.getAllList)
-    .post(listController.createList);
 
+// LISTES
+router.route('/lists')
+    .get(listController.getAllLists)
+    .post(listController.createList);
 router.route('/lists/:id')
     .get(listController.getOneList)
     .patch(listController.updateList)
     .delete(listController.deleteList);
+
+// CARTES
+router.route('/lists/:id/cards')
+    .get(cardController.getCardsInList);
+router.route('/cards/:id')
+    .get(cardController.getOneCard)
+    .patch(cardController.updateCard)
+    .delete(cardController.deleteCard);
+router.route('/cards/')
+    .post(cardController.createCard);
+
+// TAGS
+router.route('/tags/:id')
+    .patch(tagController.updateTag)
+    .delete(tagController.deleteTag);
+router.route('/tags')
+    .get(tagController.getAllTags)
+    .post(tagController.createTag);
+router.route('/cards/:id/tags')
+    .post(tagController.addTagToCard);
+router.route('/cards/:card_id/tags/:tag_id')
+    .delete(tagController.removeTagFromCard);
 
 router.use(mainController.notFound);
 

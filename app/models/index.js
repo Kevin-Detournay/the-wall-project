@@ -1,6 +1,6 @@
 const List = require('./list');
 const Card = require('./card');
-const Label = require('./label');
+const Tag = require('./tag');
 
 
 // C'est là que l'on va dire à Sequelize comment sont liés nos entités
@@ -24,22 +24,22 @@ Card.belongsTo(List, {
 
 // Maintenant on doit mettre en place une relation N:N
 // Ici on doit mettre en place une association ManyToMany
-Card.belongsToMany(Label, {
-    as: 'labels',
+Card.belongsToMany(Tag, {
+    as: 'tags',
     // Ici on va devoir préciser plus d'informations, car il a besoin de connaitre la table d'association et comment l'utiliser
     // through : à travers
-    through: 'card_has_label',
+    through: 'card_has_tag',
     foreignKey: 'card_id',
-    otherKey: 'label_id',
+    otherKey: 'tag_id',
     timestamps: false
 });
 
 /// Comme il n'y a pas de sens l'inverse utilise la même méthode.
-Label.belongsToMany(Card, {
+Tag.belongsToMany(Card, {
     as: 'cards',
-    through: 'card_has_label',
+    through: 'card_has_tag',
     // Par contre ici dans les options on peut et on doit inverser les informations
-    foreignKey: 'label_id',
+    foreignKey: 'tag_id',
     otherKey: 'card_id',
     // Tu ne t'occupes pas de gérer des dates
     timestamps: false
@@ -47,4 +47,4 @@ Label.belongsToMany(Card, {
 
 
 // On export sous-forme d'objet afin de permettre de recupérér ensuite uniquement les modèles nécessaires
-module.exports = { List, Card, Label };
+module.exports = { List, Card, Tag };

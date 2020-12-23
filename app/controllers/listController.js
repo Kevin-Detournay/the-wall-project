@@ -1,5 +1,4 @@
 const { List } = require('../models');
-const { afterSave } = require('../models/list');
 
 /**
  * API REST vs RESTful
@@ -23,12 +22,12 @@ const { afterSave } = require('../models/list');
 
 module.exports = {
 
-    getAllList: async (request, response, next) => {
+    getAllLists: async (request, response, next) => {
         try {
             const lists = await List.findAll({
                 include: {
                     association: 'cards',
-                    include: 'labels'
+                    include: 'tags'
                 },
                 // Grâce à l'option order je peux décider de l'ordre d'apparition de mes listes
                 // @link : https://sequelize.org/master/manual/model-querying-basics.html#ordering
@@ -53,7 +52,7 @@ module.exports = {
 
         // Si l'id reçu n'est pas un nombre on envoi un message d'erreur personnalisé
         if (isNaN(id)) {
-            response.status(400).json({
+            return response.status(400).json({
                 error: `the provided id must be a number`
             });
         }
@@ -62,13 +61,13 @@ module.exports = {
             const list = await List.findByPk(id, {
                 include: {
                     association: 'cards',
-                    include: 'labels'
+                    include: 'tags'
                 }
             });
 
             // Si l'on a pas trouvé de list on revoi vers le middleware 404
             if (!list) {
-                next();
+                return next();
             }
 
             response.json(list);
@@ -82,13 +81,13 @@ module.exports = {
         const data = request.body;
 
         if (!data.name) {
-            response.status(400).json({
+            return response.status(400).json({
                 error: `You must provide a name`
             });
         }
 
         if (data.position && isNaN(Number(data.position))) {
-            response.status(400).json({
+            return response.status(400).json({
                 error: `position must be a number`
             });
         }
@@ -118,14 +117,20 @@ module.exports = {
 
         // Si l'id reçu n'est pas un nombre on envoi un message d'erreur personnalisé
         if (isNaN(id)) {
-            response.status(400).json({
+            return response.status(400).json({
                 error: `the provided id must be a number`
             });
         }
 
         if (data.position && isNaN(Number(data.position))) {
-            response.status(400).json({
+            return response.status(400).json({
                 error: `position must be a number`
+            });
+        }
+
+        if (!data.name) {
+            return response.status(400).json({
+                error: `You must provide a name`
             });
         }
 
@@ -139,11 +144,13 @@ module.exports = {
             // Mettre à jour mon instance de classe List grâce aux setters
             // On va pas s'embeter a determiner pour chaque possibilité si on doit mettre l'info à jour ou non (imaginer une entité avec 30 colonnes…)
             // On boucle sur les donnée envoyés
+
             for (const field in data) {
 
                 // On vérifie que ce champ est également présent dans l'entité récupéré
                 // list[field] pourrait correspondre à list.name ou list.position
-                if (list[field]) {
+                // On est obligé de vérifier que le type n'est pas undefined, car si le nom de la liste est égal à 0 ou "" (qui sont des valeurs falsy) cela ne verifierai pas la condition, et ne mettrais plus jamais à jour les valeurs
+                if (typeof list[field] !== 'undefined') {
                     // Cela pourrait être au final list.name = data.name
                     list[field] = data[field];
                 }
@@ -163,7 +170,7 @@ module.exports = {
         const id = Number(request.params.id);
 
         if (isNaN(id)) {
-            response.status(400).json({
+            return response.status(400).json({
                 error: `the provided id must be a number`
             });
         }
@@ -172,7 +179,7 @@ module.exports = {
             // On récupère une instance de classe List
             const list = await List.findByPk(id);
             if (!list) {
-                next();
+                return next();
             }
 
             await list.destroy();

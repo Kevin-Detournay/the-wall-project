@@ -21,9 +21,11 @@
   },
   "homepage": "https://github.com/O-clock-Nautilus/S06-Atelier-oKanban-yannOclock#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "pg": "^8.5.1",
+    "sanitize-html": "^2.3.0",
     "sequelize": "^6.3.5"
   }
 }

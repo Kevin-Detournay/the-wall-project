@@ -2,14 +2,14 @@ const sequelize = require('../db');
 
 const { Model, DataTypes } = require('sequelize');
 
-class Label extends Model { }
+class Tag extends Model { }
 
-Label.init({
+Tag.init({
     name: DataTypes.TEXT,
     color: DataTypes.TEXT
 }, {
     sequelize,
-    tableName: 'label'
+    tableName: 'tag'
 });
 
-module.exports = Label;
+module.exports = Tag;

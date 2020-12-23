@@ -8,13 +8,13 @@ const { List } = require('./app/models');
         const lists = await List.findAll({
             include: {
                 association: 'cards',
-                include: 'labels'
+                include: 'tags'
             }
         });
         for(const list of lists){
             console.log(list.name, ' : ');
             for(const card of list.cards){
-                console.log(`\t - ${card.content} (${card.labels.map(label => label.name)})`);
+                console.log(`\t - ${card.content} (${card.tags.map(tag => tag.name)})`);
             }
         }
     } catch(error){

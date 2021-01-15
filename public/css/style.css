@@ -1,6 +1,6 @@
 body {
   background-color:black;
-  height: 100vh;
+
 }
 
 .card-lists {
@@ -12,22 +12,9 @@ margin:.5rem;
 
 }
 
-.sortable-ghost{
- 
-  background-color: aqua;
-}
 
-.sortable-chosen{
- 
-  background-color: aqua;
-}
-.sortable-drag{
- 
-  background-color: aqua;
-}
 
-.sortable-chosend{
- 
-  background-color: darkred;
-  color: blueviolet;
+
+.is-one-quarter.panel{
+  margin-bottom: auto;
 }

@@ -117,8 +117,7 @@ const listModule ={
             onEnd: cardModule.handleDroppedCard
       
         })
-        
-        
+
 
         button.addEventListener('click',cardModule.showAddCardModal);
     },
@@ -168,9 +167,7 @@ const listModule ={
         console.log('error')
     
         }
-    
-    
-        
+  
     
     },
 

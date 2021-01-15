@@ -25,10 +25,10 @@ module.exports = {
     getAllLists: async (request, response, next) => {
         try {
             const lists = await List.findAll({
-                include: {
+                include: ['cards',{
                     association: 'cards',
                     include: 'tags'
-                },
+                }],
                 // Grâce à l'option order je peux décider de l'ordre d'apparition de mes listes
                 // @link : https://sequelize.org/master/manual/model-querying-basics.html#ordering
                 order: [

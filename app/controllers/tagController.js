@@ -137,7 +137,8 @@ module.exports = {
                 return next();
             }
 
-            let tag = await Tag.findByPk(tagId);
+            let tag = await Tag.findByPk(tagId ); 
+            
             if (!tag) {
                 return next();
             }

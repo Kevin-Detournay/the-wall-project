@@ -91,11 +91,11 @@ module.exports = {
             });
         }
 
-        if (!data.content) {
-            return response.status(400).json({
-                error: `You must provide a content`
-            });
-        }
+        // if (!data.content) {
+        //     return response.status(400).json({
+        //         error: `You must provide a content`
+        //     });
+        // }
 
         if (data.position && isNaN(Number(data.position))) {
             return response.status(400).json({

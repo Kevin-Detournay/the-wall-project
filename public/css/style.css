@@ -1,0 +1,33 @@
+body {
+  background-color:black;
+  height: 100vh;
+}
+
+.card-lists {
+  overflow-x: auto;
+}
+.tag{
+
+margin:.5rem;
+
+}
+
+.sortable-ghost{
+ 
+  background-color: aqua;
+}
+
+.sortable-chosen{
+ 
+  background-color: aqua;
+}
+.sortable-drag{
+ 
+  background-color: aqua;
+}
+
+.sortable-chosend{
+ 
+  background-color: darkred;
+  color: blueviolet;
+}

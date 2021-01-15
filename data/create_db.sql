@@ -79,4 +79,5 @@ SELECT setval('card_id_seq', (SELECT MAX(id) from "card"));
 SELECT setval('tag_id_seq', (SELECT MAX(id) from "tag"));
 
 
+
 COMMIT;

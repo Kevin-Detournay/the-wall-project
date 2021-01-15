@@ -5,7 +5,14 @@ const cors = require('cors');
 const sanitizer = require('./app/middlewares/body-sanitizer');
 
 const app = express();
+app.use(express.static('public'))
+app.use(express.urlencoded({extended: true}));
+const multer = require('multer');
+const bodyParser = multer();
+app.use(express.json())
 
+// on utlise .none() pour dire qu'on attends pas de fichier, uniquement des inputs "classiques" !
+app.use( bodyParser.none() );
 const router = require('./app/router');
 
 const port = process.env.PORT || 3000;
@@ -21,7 +28,6 @@ app.use(cors('*'));
 // app.use(cors('https://www.domaine.com'));
 
 
-app.use(express.urlencoded({extended: true}));
 
 // ! Attention il faut que le middleware chargé d'assinir les données reçu ce trouve après le middleware chargé d'organiser les données reçu dans request.body
 app.use(sanitizer);

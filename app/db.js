@@ -8,7 +8,8 @@ const sequelize = new Sequelize(process.env.PG_URL, {
         // Afin de modifier le nom de la propriété des champs en sorti de requête sequelize on précise des correspondances
         createdAt: 'created_at',
         updatedAt : 'updated_at'
-    }
+    },
+    logging:false,
 });
 
 module.exports = sequelize;

@@ -573,8 +573,8 @@ tagModule={
           const currentCard=document.querySelector(`[data-card_id="${cardId}"]`)
           const existtag=currentCard.querySelector(`[tag-id="${tagId}"]`)
           if(!existtag){
-            currentCard.append(tagclone)
-
+            
+            currentCard.insertBefore(tagclone,currentCard.querySelector('.add-tag-button'))
           }
     
         } catch (error) {

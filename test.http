@@ -29,7 +29,7 @@ DELETE http://localhost:3000/lists/3
 ############################## CARDS #############################
 
 ### récupération de toutes les cartes d'une liste
-GET http://localhost:3000/lists/1/cards
+GET http://localhost:3000/lists/21/cards
 
 ### récupération d'une carte
 GET http://localhost:3000/cards/3
@@ -43,13 +43,13 @@ content=carte test post
 &list_id=1
 
 ### modification d'une carte
-PATCH http://localhost:3000/cards/1
+PATCH http://localhost:3000/cards/45
 Content-Type: application/x-www-form-urlencoded
 
-content=carte test patch
-&color=#f0f
-&position=1
-&list_id=3
+//content=carte test patch
+&color=#f9f4a3
+&position=0
+&list_id=21
 
 ### suppression d'une carte
 DELETE http://localhost:3000/cards/5
@@ -63,18 +63,18 @@ GET http://localhost:3000/tags
 POST http://localhost:3000/tags
 Content-Type: application/x-www-form-urlencoded
 
-name=urgentissime
+name=<i class="fas fa-tags"></i>
 &color=#f0f
 
 ### modification d'un tags
-PATCH http://localhost:3000/tags/1
+PATCH http://localhost:3000/tags/5
 Content-Type: application/x-www-form-urlencoded
 
-name=URGENT
-&color=#F0F
+name=
+&color=#a3f9a7
 
 ### suppression d'un tags
-DELETE http://localhost:3000/tags/4
+DELETE http://localhost:3000/tags/5
 
 ### associé un tag a une carte
 POST http://localhost:3000/cards/2/tags

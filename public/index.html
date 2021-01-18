@@ -12,30 +12,23 @@
 </head>
 
 <body>
-    <section class="section ">
-        <div class="container">
+    <main class="section ">
+        
             <h1 class="title has-text-white">
                 The Wall
             </h1>
-            <div class="columns " >
+             <button class="button is-success" id="addListButton">
+                <span class="icon is-small">
+                    <i class="fas fa-plus"></i>
+                </span>
+                &nbsp; Ajouter une liste
+            </button>
 
-                <div class="column is-full" >
-                    <div class="card-lists columns" id="mainContainer">
-                       
-                    </div>
-                </div>
-                <div class="column">
-                    <button class="button is-success" id="addListButton">
-                        <span class="icon is-small">
-                            <i class="fas fa-plus"></i>
-                        </span>
-                        &nbsp; Ajouter une liste
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </section>
+                <div class="card-lists columns" id="mainContainer">
+                    
+                </div>      
+       
+            </main>
 
     <div class="modal " id="addListModal">
         <div class="modal-background"></div>
@@ -109,9 +102,9 @@
 <!-- templates -->
     <template id="template-list">
         <!-- list -->
-        <div class="column is-one-quarter panel mb-auto" data-list_id="C">
+        <div class="column panel is-one-fifth mb-auto" data-list_id="C">
             <div class="panel-heading has-background-grey">
-                <div class="columns">
+                <div class="columns is-flex-wrap-wrap">
 
                     <div class="column">
                         <h2 class="has-text-white">&lt;sans nom&gt;</h2>
@@ -203,11 +196,12 @@
 <!-- /templates -->
 
     <!-- Chargement de mon fichier JS -->
-    <script src="./js/app.js"></script>
+    <!-- <script src="./js/app.js"></script>
     <script src="./js/card.js"></script>
     <script src="./js/list.js"></script>
     <script src="./js/tag.js"></script>
-  
+   -->
+   <script src="./js/bundle.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
 </body>

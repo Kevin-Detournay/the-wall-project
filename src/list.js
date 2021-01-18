@@ -1,3 +1,4 @@
+const cardModule=require('./card')
 
 const listModule ={
 
@@ -210,4 +211,4 @@ const listModule ={
 
     }
 }
-// module.exports=listModule
+module.exports=listModule

@@ -1,6 +1,6 @@
-// const listModule = require('./list');
-// const cardModule = require('./card');
-// const tagModule = require('./tag');
+const listModule = require('./list');
+const cardModule = require('./card');
+const tagModule = require('./tag');
 
 // on objet qui contient des fonctions
 const app = {
@@ -94,7 +94,7 @@ const app = {
   },
 
 };
-// module.exports=app
+module.exports=app
 
 
 // on accroche un écouteur d'évènement sur le document : quand le chargement est terminé, on lance app.init

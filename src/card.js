@@ -186,4 +186,4 @@ const cardModule = {
 
 
 }
-// module.exports=cardModule
+module.exports=cardModule

@@ -99,10 +99,11 @@
         </div>
     </div>
 
+
 <!-- templates -->
     <template id="template-list">
         <!-- list -->
-        <div class="column panel is-one-fifth mb-auto" data-list_id="C">
+        <div class="column panel is-one-fifth is-align-self-flex-start" data-list_id="C">
             <div class="panel-heading has-background-grey">
                 <div class="columns is-flex-wrap-wrap">
 
@@ -148,7 +149,7 @@
     <template id="template-card">
         <!-- card -->
         <div class="box" data-card_id="I" style="background-color: white;">
-            <div class="columns">
+            <div class="columns is-flex-wrap-wrap">
                 <div class="column content">
                     &lt;contenu de la carte&gt;
                 </div>
@@ -157,9 +158,10 @@
                 
                 <div class="field has-addons">
                     <div class="control">
-                        <input type="text" class="input is-small" name="content" value=""
+                        <input type="text" class="textarea" name="content" value=""
                         
                         placeholder="Nom de la carte">
+                        
 
                         
                     </div>

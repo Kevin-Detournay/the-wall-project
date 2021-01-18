@@ -1,4 +1,6 @@
+
 body {
+  min-height:100vh;
   background-color:black;
 
 }
@@ -15,4 +17,6 @@ body {
 margin:.5rem;
 
 }
-
+.sortable-chosen{
+  background-color: transparent;
+}

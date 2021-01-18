@@ -142,10 +142,15 @@ const cardModule = {
 
         // card UPDATE
         const pencil = newCard.querySelector('.pencil')
+        newCardContent.addEventListener('dblclick',cardModule.toggleCardForm)
         pencil.addEventListener('click', cardModule.toggleCardForm)
 
         const cardForm = newCard.querySelector('.box form')
-        const contentField = cardForm.querySelector('input[name="content"]')
+        const contentField = cardForm.querySelector('textarea')
+
+      
+        
+        
         contentField.value = card.content
         cardForm.addEventListener('submit', cardModule.handleCardForm)
 
@@ -564,9 +569,13 @@ tagModule={
           // ajoute le tag dans la carte
           const currentTag=e.target
           const tagclone=currentTag.cloneNode(true)
+          tagclone.addEventListener('click',tagModule.deleteTag)
           const currentCard=document.querySelector(`[data-card_id="${cardId}"]`)
           const existtag=currentCard.querySelector(`[tag-id="${tagId}"]`)
-          if(!existtag)currentCard.append(tagclone)
+          if(!existtag){
+            currentCard.append(tagclone)
+
+          }
     
         } catch (error) {
          console.log(error)
@@ -581,12 +590,26 @@ tagModule={
         newtag.style.cursor="pointer"
         newtag.textContent=tag.name
         newtag.setAttribute('tag-id',tag.id)
+        newtag.addEventListener('click',tagModule.deleteTag)
         const cardContainer=document.querySelector(`[data-card_id="${cardId}"]`)
         const plusButton=cardContainer.querySelector('.add-tag-button')
         cardContainer.insertBefore(newtag,plusButton)
         
      
         
+      },
+      deleteTag:async function(e){
+        const currentCard=e.target.closest('[data-card_id]')
+        const cardId=currentCard.getAttribute('data-card_id')
+        const tagId=e.target.getAttribute('tag-id')
+        
+        await fetch(`http://localhost:3000/cards/${cardId}/tags/${tagId}`,{
+          method:'DELETE'
+        })
+
+        e.target.remove()
+
+
       }
 }
 module.exports=tagModule

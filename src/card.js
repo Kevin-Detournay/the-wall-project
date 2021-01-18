@@ -39,10 +39,15 @@ const cardModule = {
 
         // card UPDATE
         const pencil = newCard.querySelector('.pencil')
+        newCardContent.addEventListener('dblclick',cardModule.toggleCardForm)
         pencil.addEventListener('click', cardModule.toggleCardForm)
 
         const cardForm = newCard.querySelector('.box form')
-        const contentField = cardForm.querySelector('input[name="content"]')
+        const contentField = cardForm.querySelector('textarea')
+
+      
+        
+        
         contentField.value = card.content
         cardForm.addEventListener('submit', cardModule.handleCardForm)
 

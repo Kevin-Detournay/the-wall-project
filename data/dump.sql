@@ -159,7 +159,7 @@ COPY public.card (id, content, "position", color, created_at, updated_at, list_i
 14	L'API a été codée a La main avec Node.js et Express	0	\N	2021-01-15 20:32:10.882+01	2021-01-18 20:08:42.865+01	1
 42	Voici un prototype d'une application Kanban, pour pouvoir réaliser toutes sortes de \r\n"To Do" Listes	0	\N	2021-01-18 19:00:37.936+01	2021-01-18 20:26:40.695+01	2
 44	le Contenu est Volontairement publique , et n'a pour but que de montrer mon travail aux recruteurs qui passent sur mon site 	1	\N	2021-01-18 19:10:07.817+01	2021-01-18 20:26:40.707+01	2
-43	Attention les Cartes et listes que vous ajoutez sont injectés en base de données, \r\nelles sont donc visibles, modifiables, et supprimables par TOUT LES \r\nVISITEURS\r\n	2	\N	2021-01-18 19:03:43.953+01	2021-01-18 20:26:40.711+01	2
+43	Attention les Cartes et listes que vous ajoutez sont injectés en base de données, \r\nelles sont donc visibles, modifiables, et supprimables par TOUT LES \r\nVISITEURS\r\n	2	#f9a3a3	2021-01-18 19:03:43.953+01	2021-01-18 20:26:40.711+01	2
 46	Toutes les cartes et les listes sont interchangeables avec un glissé déposé , \r\nn'hésites pas a mettre ta carte en haut de la liste pour que je puisse la lire	1	\N	2021-01-18 19:39:45.17+01	2021-01-18 20:46:56.485+01	21
 \.
 

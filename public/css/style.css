@@ -6,17 +6,20 @@ body {
 }
 #mainContainer{
   width: 95%;
-  margin:auto
+  margin:auto;
 }
 
 .card-lists {
   overflow-x: auto;
+
 }
 .tag{
 margin:.5rem;
 
 }
-
+.panel{
+  cursor: pointer;
+}
 .tag:hover{
   opacity: 30%;
   transform: scale(1.2);

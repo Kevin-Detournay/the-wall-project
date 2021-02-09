@@ -2,6 +2,8 @@
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect:  'postgres',
+    protocol: 'postgres',
     define: {
         // Afin de dire à sequelize que l'on utilise une convention de nommage en snake_case, on active l'option undescored
         underscored: true,

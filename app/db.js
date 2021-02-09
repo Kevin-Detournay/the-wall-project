@@ -17,8 +17,10 @@ const sequelize = new Sequelize(process.env.DATABASE_URL,{
     logging:  false, //false
 
     dialectOptions: {
-        ssl: true
-    },
+        ssl: {
+            rejectUnauthotized:false
+        }
+       },
 
    });
 

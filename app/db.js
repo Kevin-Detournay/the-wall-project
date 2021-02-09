@@ -10,7 +10,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
         updatedAt : 'updated_at'
     },
     logging:false,
-    ssl:false,
+    ssl:true,
 });
 
 module.exports = sequelize;

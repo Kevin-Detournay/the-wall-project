@@ -1,7 +1,7 @@
 
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+const sequelize = new Sequelize(process.env.DATABASE_URL,{
   
     define: {
         // Afin de dire à sequelize que l'on utilise une convention de nommage en snake_case, on active l'option undescored
@@ -20,12 +20,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
         ssl: true
     },
 
-    pool: {
-        max: 20,
-        min: 0,
-        idle: 5000
-    }
-});
+   });
 
 
 module.exports = sequelize;

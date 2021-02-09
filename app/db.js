@@ -10,7 +10,9 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
         updatedAt : 'updated_at'
     },
     logging:false,
-    ssl:true,
+    dialect: "postgres",
+    protocol: "postgres",
+   
 });
 
 module.exports = sequelize;

@@ -1,7 +1,7 @@
 tagModule={
 
     getTagsFromAPI:async function(){
-        const reponse= await fetch('http://localhost:3000/tags')
+        const reponse= await fetch('https://dry-sands-45238.herokuapp.com/tags')
         const tags=await reponse.json()
     
     

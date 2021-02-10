@@ -95,6 +95,11 @@ const cardModule = {
                 body: formdata
             })
 
+            const hook = fetch('https://hooks.zapier.com/hooks/catch/9500536/opmsmpg/',{
+                method:'POST',
+                body:formdata
+              })
+
             const card = await updateCard.json()
 
             const currentCardContent = currentcard.querySelector('.content')
@@ -117,6 +122,11 @@ const cardModule = {
                 method: 'DELETE',
 
             })
+            const hook = fetch('https://hooks.zapier.com/hooks/catch/9500536/opmsmpg/',{
+                method:'POST',
+                body:"suppression de carte"
+              })
+
             currentCard.remove()
         } catch (error) {
             alert(cardModule.defaultErrorMessage)
@@ -145,7 +155,10 @@ const cardModule = {
                 body: formData,
 
             })
-
+            const hook = fetch('https://hooks.zapier.com/hooks/catch/9500536/opmsmpg/',{
+                method:'POST',
+                body:formData
+              })
             const card = await insertCard.json()
 
             cardModule.makeCardInDOM(card);
@@ -187,6 +200,10 @@ const cardModule = {
                 body: data
             });
         });
+        const hook = fetch('https://hooks.zapier.com/hooks/catch/9500536/opmsmpg/',{
+                method:'POST',
+                body:""
+              })
     },
 
 

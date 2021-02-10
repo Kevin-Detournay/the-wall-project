@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watchify src/app -o public/js/bundle.js"
+    "watch": "watchify src/app -o public/js/bundle.js",
+    "resetBdd":"heroku pg:psql -f ./data/pg.sql"
   },
   "repository": {
     "type": "git",

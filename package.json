@@ -1,5 +1,5 @@
 {
-  "name": "S06-Atelier-oKanban-yannOclock",
+  "name": "the_wall_project",
   "version": "1.0.0",
   "description": "## jour 2 : BDD",
   "main": "index.js",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/O-clock-Nautilus/S06-Atelier-oKanban-yannOclock.git"
+    "url": "git+https://github.com/Kevin-Detournay/the-wall-project"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/O-clock-Nautilus/S06-Atelier-oKanban-yannOclock/issues"
+    "url": "https://github.com/Kevin-Detournay/the-wall-project/issues"
   },
-  "homepage": "https://github.com/O-clock-Nautilus/S06-Atelier-oKanban-yannOclock#readme",
+  "homepage": "https://github.com/Kevin-Detournay/the-wall-project#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

@@ -1,24 +1,6 @@
 const { List } = require('../models');
 
-/**
- * API REST vs RESTful
- * 
- * REST : On peut récupérer plusieurs entité avec leurs entités descendantes
- *  Avantages : 
- *          - on limite le nombre d'appels HTTP
- *          - on facilite la tâche de l'utilisateur
- *  Inconvéniants : 
- *          - on délivre potentiellement plus d'informations que nécessaire
- *          - on éxécute des requêtes potentiellment plus lentes que nécessaire
- * 
- * RESTful : On ne renvoi que l'e ou les entité demandés
- *  Avantages : 
- *          - on optimise les requêtes SQL
- *          - on ne retourne pas plus d'information que nécessaire
- *  Inconvénients : 
- *          - On multiplie les appels HTTP ce qui peut surcharger les serveur web et qui du coup multiplira le nombre de requêtes SQL
- *
- */
+
 
 module.exports = {
 
@@ -29,7 +11,7 @@ module.exports = {
                     association: 'cards',
                     include: 'tags'
                 }],
-                // Grâce à l'option order je peux décider de l'ordre d'apparition de mes listes
+                
                 // @link : https://sequelize.org/master/manual/model-querying-basics.html#ordering
                 order: [
                     ['position', 'ASC'],
@@ -37,9 +19,7 @@ module.exports = {
                 ]
             });
 
-            // Cela fonctionne également avec .send()
-            // Le response.json comme le response.send écrit dans la réponse à l'utilisateur, la méthode json étant spécialisé dans l'affichage de json…
-            // Lors de l'affichage des instances de list au format json, javascript ne va récupérer de ces instances, que les propriétés qui ont un getter (avec un peu de magie Sequelize)
+          
             response.json(lists);
         } catch (error) {
             next(error);
@@ -141,17 +121,12 @@ module.exports = {
                 next();
             }
 
-            // Mettre à jour mon instance de classe List grâce aux setters
-            // On va pas s'embeter a determiner pour chaque possibilité si on doit mettre l'info à jour ou non (imaginer une entité avec 30 colonnes…)
-            // On boucle sur les donnée envoyés
-
+            
             for (const field in data) {
 
-                // On vérifie que ce champ est également présent dans l'entité récupéré
-                // list[field] pourrait correspondre à list.name ou list.position
-                // On est obligé de vérifier que le type n'est pas undefined, car si le nom de la liste est égal à 0 ou "" (qui sont des valeurs falsy) cela ne verifierai pas la condition, et ne mettrais plus jamais à jour les valeurs
+                
                 if (typeof list[field] !== 'undefined') {
-                    // Cela pourrait être au final list.name = data.name
+                    
                     list[field] = data[field];
                 }
 

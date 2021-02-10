@@ -7,12 +7,6 @@ const listController = require('./controllers/listController');
 const cardController = require('./controllers/cardController');
 const tagController = require('./controllers/tagController');
 
-/*
-router.get('/lists', listController.getAllList);
-router.post('/lists', listController.getAllList);
-Ce qui suit correspond exactement a ce qu'il y a ci-dessus.
-C'est juste écrit de façon plus optimale, grâce à la méthode route()
-*/
 
 // LISTES
 router.route('/lists')

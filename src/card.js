@@ -118,7 +118,7 @@ const cardModule = {
         try {
             const currentCard = e.target.closest('[data-card_id]');
             const currentCardId = currentCard.getAttribute('data-card_id')
-            const reponse = await fetch(`${cardModule.card_base_url}/cards/${currentCardId}`, {
+            const reponse = await fetch(`${cardModule.card_base_url}/${currentCardId}`, {
                 method: 'DELETE',
 
             })

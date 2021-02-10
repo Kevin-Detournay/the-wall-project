@@ -1,5 +1,5 @@
 const cardModule=require('./card')
-
+const tagModule = require('./tag');
 const listModule ={
 
     defaultErrorMessage: 'Désolé un problème est survenu avec les listes, veuillez réessayer ultérieurement',
@@ -176,7 +176,7 @@ const listModule ={
         try {
         const currentList=e.target.closest('[data-list_id]');
         const currentListId=currentList.getAttribute('data-list_id')
-        const reponse = await fetch(listModule.list_base_url`/${currentListId}`,{
+        const reponse = await fetch(`${listModule.list_base_url}/${currentListId}`,{
         method:'DELETE',
     
         })

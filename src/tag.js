@@ -1,7 +1,10 @@
-tagModule={
-
+const tagModule={
+  setBaseUrl: function (base_url) {
+    tagModule.tag_base_url = base_url + 'tags'
+    tagModule.base_url=base_url
+      },
     getTagsFromAPI:async function(){
-        const reponse= await fetch('https://dry-sands-45238.herokuapp.com/tags')
+        const reponse= await fetch(tagModule.tag_base_url)
         const tags=await reponse.json()
     
     
@@ -47,7 +50,7 @@ tagModule={
           
          
           const formdata=new FormData(currentform)
-          const addTag= await fetch(`http://localhost:3000/cards/${cardId}/tags`,{
+          const addTag= await fetch(`${tagModule.base_url}cards/${cardId}/tags`,{
             method:'POST',
             body:formdata
           })
@@ -89,7 +92,7 @@ tagModule={
         const cardId=currentCard.getAttribute('data-card_id')
         const tagId=e.target.getAttribute('tag-id')
         
-        await fetch(`http://localhost:3000/cards/${cardId}/tags/${tagId}`,{
+        await fetch(`${tagModule.base_url}cards/${cardId}/tags/${tagId}`,{
           method:'DELETE'
         })
 

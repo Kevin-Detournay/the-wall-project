@@ -7,7 +7,7 @@ const tagModule = require('./tag');
 const app = {
   
 
-  base_url:'https://dry-sands-45238.herokuapp.com/',
+  base_url:'http://localhost:8000/',
   defaultErrorMessage:'Oups,une erreur est survenue ',
 
   
@@ -16,6 +16,8 @@ const app = {
   init: async function () {
     listModule.setBaseUrl(app.base_url);
     cardModule.setBaseUrl(app.base_url);
+    tagModule.setBaseUrl(app.base_url);
+   
    
     console.log('app.init !');
     
@@ -101,6 +103,7 @@ module.exports=app
 // on accroche un écouteur d'évènement sur le document : quand le chargement est terminé, on lance app.init
 document.addEventListener('DOMContentLoaded', app.init );
 },{"./card":2,"./list":3,"./tag":4}],2:[function(require,module,exports){
+const tagModule = require('./tag');
 const cardModule = {
 
     defaultErrorMessage: 'Désolé un problème est survenu avec les cartes, veuillez réessayer ultérieurement',
@@ -215,7 +218,7 @@ const cardModule = {
         try {
             const currentCard = e.target.closest('[data-card_id]');
             const currentCardId = currentCard.getAttribute('data-card_id')
-            const reponse = await fetch(`http://localhost:3000/cards/${currentCardId}`, {
+            const reponse = await fetch(`${cardModule.card_base_url}/cards/${currentCardId}`, {
                 method: 'DELETE',
 
             })
@@ -242,7 +245,7 @@ const cardModule = {
             const formData = new FormData(event.target);
             formData.set('position', cards.length)
 
-            const insertCard = await fetch('http://localhost:3000/cards/', {
+            const insertCard = await fetch(cardModule.card_base_url, {
                 method: 'POST',
                 body: formData,
 
@@ -284,7 +287,7 @@ const cardModule = {
             data.set('position', position);
             data.set('list_id', listId);
 
-            fetch('http://localhost:3000/cards/' + cardId, {
+            fetch(`${cardModule.card_base_url}/${cardId}`, {
                 method: "PATCH",
                 body: data
             });
@@ -295,9 +298,9 @@ const cardModule = {
 
 }
 module.exports=cardModule
-},{}],3:[function(require,module,exports){
+},{"./tag":4}],3:[function(require,module,exports){
 const cardModule=require('./card')
-
+const tagModule = require('./tag');
 const listModule ={
 
     defaultErrorMessage: 'Désolé un problème est survenu avec les listes, veuillez réessayer ultérieurement',
@@ -474,7 +477,7 @@ const listModule ={
         try {
         const currentList=e.target.closest('[data-list_id]');
         const currentListId=currentList.getAttribute('data-list_id')
-        const reponse = await fetch(listModule.list_base_url`/${currentListId}`,{
+        const reponse = await fetch(`${listModule.list_base_url}/${currentListId}`,{
         method:'DELETE',
     
         })
@@ -511,11 +514,14 @@ const listModule ={
 }
 module.exports=listModule
 
-},{"./card":2}],4:[function(require,module,exports){
-tagModule={
-
+},{"./card":2,"./tag":4}],4:[function(require,module,exports){
+const tagModule={
+  setBaseUrl: function (base_url) {
+    tagModule.tag_base_url = base_url + 'tags'
+    tagModule.base_url=base_url
+      },
     getTagsFromAPI:async function(){
-        const reponse= await fetch('https://dry-sands-45238.herokuapp.com/tags')
+        const reponse= await fetch(tagModule.tag_base_url)
         const tags=await reponse.json()
     
     
@@ -561,7 +567,7 @@ tagModule={
           
          
           const formdata=new FormData(currentform)
-          const addTag= await fetch(`http://localhost:3000/cards/${cardId}/tags`,{
+          const addTag= await fetch(`${tagModule.base_url}cards/${cardId}/tags`,{
             method:'POST',
             body:formdata
           })
@@ -603,7 +609,7 @@ tagModule={
         const cardId=currentCard.getAttribute('data-card_id')
         const tagId=e.target.getAttribute('tag-id')
         
-        await fetch(`http://localhost:3000/cards/${cardId}/tags/${tagId}`,{
+        await fetch(`${tagModule.base_url}cards/${cardId}/tags/${tagId}`,{
           method:'DELETE'
         })
 

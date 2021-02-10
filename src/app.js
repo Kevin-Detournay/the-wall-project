@@ -6,7 +6,7 @@ const tagModule = require('./tag');
 const app = {
   
 
-  base_url:'https://dry-sands-45238.herokuapp.com/',
+  base_url:'http://localhost:8000/',
   defaultErrorMessage:'Oups,une erreur est survenue ',
 
   
@@ -15,6 +15,8 @@ const app = {
   init: async function () {
     listModule.setBaseUrl(app.base_url);
     cardModule.setBaseUrl(app.base_url);
+    tagModule.setBaseUrl(app.base_url);
+   
    
     console.log('app.init !');
     

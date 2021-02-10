@@ -1,3 +1,4 @@
+const tagModule = require('./tag');
 const cardModule = {
 
     defaultErrorMessage: 'Désolé un problème est survenu avec les cartes, veuillez réessayer ultérieurement',
@@ -112,7 +113,7 @@ const cardModule = {
         try {
             const currentCard = e.target.closest('[data-card_id]');
             const currentCardId = currentCard.getAttribute('data-card_id')
-            const reponse = await fetch(`http://localhost:3000/cards/${currentCardId}`, {
+            const reponse = await fetch(`${cardModule.card_base_url}/cards/${currentCardId}`, {
                 method: 'DELETE',
 
             })
@@ -139,7 +140,7 @@ const cardModule = {
             const formData = new FormData(event.target);
             formData.set('position', cards.length)
 
-            const insertCard = await fetch('http://localhost:3000/cards/', {
+            const insertCard = await fetch(cardModule.card_base_url, {
                 method: 'POST',
                 body: formData,
 
@@ -181,7 +182,7 @@ const cardModule = {
             data.set('position', position);
             data.set('list_id', listId);
 
-            fetch('http://localhost:3000/cards/' + cardId, {
+            fetch(`${cardModule.card_base_url}/${cardId}`, {
                 method: "PATCH",
                 body: data
             });

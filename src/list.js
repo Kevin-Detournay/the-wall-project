@@ -44,7 +44,7 @@ const listModule ={
         const formData = new FormData(event.target);
         formData.set('position',lists.length)
         // On envoi le nom de la liste à la méthode chargé de la créer
-        const postformdata = await fetch('http://localhost:3000/lists/', {
+        const postformdata = await fetch(listModule.list_base_url, {
             method: 'POST',
             body: formData,
         });
@@ -140,7 +140,7 @@ const listModule ={
             const listId = currentList.getAttribute('data-list_id')
             const formdata = new FormData(e.target)
     
-            const updateTitle = await fetch(`http://localhost:3000/lists/${listId}`, {
+            const updateTitle = await fetch(`${listModule.list_base_url}/${listId}`, {
                 method: 'PATCH',
                 body: formdata,
     
@@ -176,7 +176,7 @@ const listModule ={
         try {
         const currentList=e.target.closest('[data-list_id]');
         const currentListId=currentList.getAttribute('data-list_id')
-        const reponse = await fetch(`http://localhost:3000/lists/${currentListId}`,{
+        const reponse = await fetch(listModule.list_base_url`/${currentListId}`,{
         method:'DELETE',
     
         })
@@ -200,7 +200,7 @@ const listModule ={
            data.set("name",listName)
            data.set("position",index++)
 
-           const reponse =await fetch(`http://localhost:3000/lists/${listId}`,{
+           const reponse =await fetch(`${listModule.list_base_url}/${listId}`,{
                 method:'PATCH',
                 body:data
              

@@ -115,6 +115,7 @@ const listModule ={
             ghostClass: "sortable-ghostd", 
 	        chosenClass: "sortable-chosend",
 	        dragClass: "sortable-dragd",
+            filter:'.textarea',
             onEnd: cardModule.handleDroppedCard
       
         })
